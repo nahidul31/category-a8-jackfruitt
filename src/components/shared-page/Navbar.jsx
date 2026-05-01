@@ -41,7 +41,7 @@ export default function Navbar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-amber-100 shadow-sm shadow-amber-50">
+    <nav className=" top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-amber-100 shadow-sm shadow-amber-50">
       {/* ── Main bar ───────────────────────────────────────────────────────── */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         {/* ── Logo ── */}
