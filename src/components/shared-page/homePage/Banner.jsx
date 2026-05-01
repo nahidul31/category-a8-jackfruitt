@@ -32,7 +32,7 @@ export default function Banner() {
             Hot Deals 🔥Summer Sale 50% OFF
           </Chip>
 
-          <h1 className="text-4xl sm:text-6xl md:text-5xl font-bold">
+          <h1 className="text-4xl sm:text-6xl md:text-5xl lg:text-6xl font-bold">
             Stay Cool This Summer<br></br> with SunCart !
           </h1>
           <p className="mt-3">

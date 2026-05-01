@@ -139,14 +139,14 @@ export default function Navbar() {
             /* ── Logged OUT — Login / Register ── -----------------*/
             <div className="hidden md:flex items-center gap-2">
               <Link
-                href="/login"
+                href="/signin"
                 className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all duration-150 no-underline"
               >
                 <ArrowRightToSquare className="w-4 h-4" />
                 Login
               </Link>
               <Link
-                href="/register"
+                href="/signup"
                 className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-sm font-semibold text-white shadow-md shadow-amber-200 hover:shadow-lg hover:shadow-amber-300 hover:-translate-y-0.5 transition-all duration-150 no-underline"
               >
                 <PersonPlus className="w-4 h-4" />
