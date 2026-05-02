@@ -71,19 +71,17 @@ const SignUpPage = () => {
             <FieldError className="text-xs text-red-500 mt-1" />
           </TextField>
 
-          {/* Image URL */}
           <TextField isRequired name="imgUrl" type="text">
             <Label className="text-sm font-medium text-orange-900">
               Profile Image URL
             </Label>
             <Input
-              placeholder="https://example.com/photo.jpg"
+              placeholder="image url"
               className="rounded-xl border-orange-200"
             />
             <FieldError className="text-xs text-red-500 mt-1" />
           </TextField>
 
-          {/* Email */}
           <TextField
             isRequired
             name="email"
