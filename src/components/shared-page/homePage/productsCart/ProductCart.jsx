@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Button } from "@heroui/react";
 import { Star, ShoppingCart, Eye } from "@gravity-ui/icons";
+import Link from "next/link";
 const ProductCart = ({ product }) => {
   const { id, name, price, rating, image } = product;
   return (
@@ -28,14 +29,16 @@ const ProductCart = ({ product }) => {
 
         <p className="text-lg font-bold text-orange-500">${product.price}</p>
 
-        <div className="flex gap-2 mt-3">
-          <Button
-            size="sm"
-            className="flex-1 bg-orange-500 text-white hover:bg-orange-600"
-          >
-            <Eye className="w-4 h-4 mr-1" />
-            Show Details
-          </Button>
+        <div>
+          <Link className="flex gap-2 mt-3" href={`/products/${id}`}>
+            <Button
+              size="sm"
+              className="flex-1 bg-orange-500 text-white hover:bg-orange-600"
+            >
+              <Eye className="w-4 h-4 mr-1" />
+              Show Details
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
