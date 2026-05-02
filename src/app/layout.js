@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared-page/Navbar";
 import Footer from "@/components/shared-page/Footer";
+import { ToastContainer } from "react-toastify";
 
 const roboto = Roboto({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
         <Navbar></Navbar>
         <main className="flex-1">{children}</main>
         <Footer></Footer>
+        <ToastContainer />
       </body>
     </html>
   );

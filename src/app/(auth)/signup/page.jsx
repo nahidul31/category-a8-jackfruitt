@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
   Button,
@@ -12,13 +13,26 @@ import {
 import { Icon, InlineIcon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const SignUpPage = () => {
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const userData = Object.fromEntries(formData.entries());
-    console.log(userData);
+    const { data, error } = await authClient.signUp.email({
+      name: formData.name, // required
+      email: formData.email, // required
+      password: formData.password, // required
+      image: formData.imgUrl,
+      callbackURL: "/signin",
+    });
+    if (error) {
+      toast.error(error.message);
+    }
+    if (data) {
+      toast.success("Register Successfully!");
+    }
   };
 
   return (
