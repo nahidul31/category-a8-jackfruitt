@@ -229,7 +229,7 @@ export default function Navbar() {
           ) : (
             <div className="flex flex-col gap-2 pt-1">
               <Link
-                href="/login"
+                href="/signin"
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-slate-200 text-sm font-semibold text-slate-600 hover:bg-slate-50 transition-colors no-underline"
               >
@@ -237,7 +237,7 @@ export default function Navbar() {
                 Login
               </Link>
               <Link
-                href="/register"
+                href="/signup"
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-sm font-semibold text-white shadow-md shadow-amber-200 transition-colors no-underline"
               >
