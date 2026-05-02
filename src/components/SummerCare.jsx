@@ -110,13 +110,11 @@ const SummerCare = () => {
 
           <div className="absolute inset-0 z-10 flex flex-col justify-between p-5 text-white">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold">
-                Summer Clothing
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold">Clothing</h2>
               <ul className="mt-2 space-y-1 text-sm md:text-base text-white list-disc list-inside">
                 <li>Wear light cotton fabrics</li>
                 <li>Choose loose-fitting clothes </li>
-                <li>Wear sunglasses and hats for sun protection</li>
+                <li>Wear sunglasses and hats </li>
               </ul>
             </div>
 
