@@ -2,22 +2,26 @@
 
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
-import { Button, Avatar } from "@heroui/react";
+import {
+  Button,
+  Avatar,
+  Modal,
+  FieldError,
+  Description,
+  Input,
+  Label,
+  TextField,
+  Form,
+} from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { Person } from "@gravity-ui/icons";
+import { Check, Person } from "@gravity-ui/icons";
+import Loading from "../loading";
 const ProfilePage = () => {
   const { data: session, isPending, error, refetch } = authClient.useSession();
-
-  if (isPending) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        Loading...
-      </div>
-    );
-  }
-
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(session);
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center h-screen gap-4">
@@ -28,11 +32,7 @@ const ProfilePage = () => {
   }
 
   if (!session) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        Please login first
-      </div>
-    );
+    return <Loading></Loading>;
   }
 
   const user = session.user;
@@ -42,6 +42,30 @@ const ProfilePage = () => {
     toast.success("Log Out Successfully");
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const userData = Object.fromEntries(formData.entries());
+
+      await authClient.updateUser({
+        name: userData.name,
+        image: userData.imageUrl,
+      });
+
+      toast.success("Profile updated successfully!", {
+        duration: 800, // 1 second
+      });
+      setIsOpen(false);
+    } catch (error) {
+      console.error("Update Error:", error);
+
+      toast.error(error?.message || "Something went wrong!", {
+        duration: 1000, // 1 second
+      });
+    }
+  };
   return (
     <div className=" p-10 flex items-center justify-center bg-gray-100 px-4">
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-6">
@@ -77,10 +101,55 @@ const ProfilePage = () => {
 
           {/* Buttons */}
           <div className="flex gap-3 mt-2">
-            <Button className="flex items-center gap-2">
-              <Icon icon="mdi:pencil" />
-              Edit
-            </Button>
+            {/* here use modal- ----===================-------=====---------------=========---------- */}
+
+            <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
+              <Button
+                onPress={() => setIsOpen(true)}
+                className="flex items-center gap-2 bg-amber-600 text-white"
+              >
+                <Icon icon="mdi:pencil" />
+                Edit
+              </Button>
+
+              <Modal.Backdrop>
+                <Modal.Container>
+                  <Modal.Dialog className="sm:max-w-[360px]">
+                    <Modal.CloseTrigger />
+
+                    <Modal.Header>
+                      <Modal.Heading>Update Your Profile</Modal.Heading>
+                    </Modal.Header>
+
+                    <Modal.Body>
+                      <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
+                        {/* Name */}
+                        <TextField isRequired name="name">
+                          <Label>Name</Label>
+                          <Input placeholder="Enter your name" />
+                          <FieldError />
+                        </TextField>
+
+                        {/* Image URL */}
+                        <TextField isRequired name="imageUrl">
+                          <Label>Profile Image URL</Label>
+                          <Input placeholder="https://example.com/image.jpg" />
+                          <FieldError />
+                        </TextField>
+
+                        {/* Submit Button */}
+                        <Button
+                          type="submit"
+                          className="w-full bg-amber-600 text-white"
+                        >
+                          Update Profile
+                        </Button>
+                      </Form>
+                    </Modal.Body>
+                  </Modal.Dialog>
+                </Modal.Container>
+              </Modal.Backdrop>
+            </Modal>
 
             <Button
               onClick={handleLogOut}
