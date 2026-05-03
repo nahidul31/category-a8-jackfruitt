@@ -19,6 +19,7 @@ import {
 } from "@gravity-ui/icons";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
+import { Avatar } from "@heroui/react";
 
 const NAV_LINKS = [
   { href: "/", label: "Home", Icon: House },
@@ -95,13 +96,23 @@ export default function Navbar() {
                 onClick={() => setDropdownOpen((p) => !p)}
                 className="flex items-center gap-2 pl-1 pr-3 py-1 rounded-full border border-slate-200 bg-white hover:border-amber-400 hover:shadow-md hover:shadow-amber-100 transition-all duration-150 cursor-pointer"
               >
-                {/* <Image
-                  src={`${user?.image}`}
-                  alt={user.name}
-                  width={32}
-                  height={32}
-                  className="w-8 h-8 rounded-full border-2 border-amber-200 object-cover"
-                /> */}
+                <div className="relative w-8 h-8 flex items-center">
+                  {user?.image?.startsWith("https") ? (
+                    <Image
+                      src={user.image}
+                      alt="profile"
+                      fill
+                      sizes="40px"
+                      className="rounded-full object-cover border border-green-500"
+                    />
+                  ) : (
+                    <Avatar className="w-8 h-8 rounded-full border border-orange-200">
+                      <Avatar.Fallback className="flex items-center justify-center w-full h-full">
+                        <Person className="w-5 h-5 text-orange-500" />
+                      </Avatar.Fallback>
+                    </Avatar>
+                  )}
+                </div>
                 <span className="text-sm font-semibold text-slate-800 hidden lg:block max-w-[100px] truncate">
                   {user?.name}
                 </span>
