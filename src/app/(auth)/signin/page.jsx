@@ -11,14 +11,44 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Icon, InlineIcon } from "@iconify/react";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 const LoginPage = () => {
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const userData = Object.fromEntries(formData.entries());
-    console.log(userData);
+    const { data, error } = await authClient.signIn.email({
+      email: userData.email, // required
+      password: userData.password, // required
+      callbackURL: "/",
+    });
+    if (error) {
+      toast.error(error.message);
+    }
+    if (data) {
+      toast.success("Log In Successfully!");
+      e.currentTarget.reset();
+    }
   };
+  // with google-------------
+  const handleGoogleLogin = async () => {
+    const { data, error } = await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
 
+    if (error) {
+      toast.error(error.message);
+    }
+  };
+  // with github------------
+  const handleGithubLogin = async () => {
+    const { data, error } = await authClient.signIn.social({
+      provider: "github",
+      callbackURL: "/",
+    });
+  };
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left — Form */}
@@ -104,12 +134,20 @@ const LoginPage = () => {
 
           {/* Google Button -=============*/}
 
-          <Button className="w-full" variant="tertiary">
+          <Button
+            onClick={() => handleGoogleLogin()}
+            className="w-full"
+            variant="tertiary"
+          >
             <InlineIcon icon="devicon:google" />
             Sign in with Google
           </Button>
           {/* GitHub Button */}
-          <Button className="w-full" variant="tertiary">
+          <Button
+            onClick={handleGithubLogin}
+            className="w-full"
+            variant="tertiary"
+          >
             <Icon icon="mdi:github" />
             Sign in with GitHub
           </Button>

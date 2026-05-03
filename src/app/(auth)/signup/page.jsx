@@ -21,10 +21,10 @@ const SignUpPage = () => {
     const formData = new FormData(e.currentTarget);
     const userData = Object.fromEntries(formData.entries());
     const { data, error } = await authClient.signUp.email({
-      name: formData.name, // required
-      email: formData.email, // required
-      password: formData.password, // required
-      image: formData.imgUrl,
+      name: userData.name, // required
+      email: userData.email, // required
+      password: userData.password, // required
+      image: userData.imgUrl,
       callbackURL: "/signin",
     });
     if (error) {
@@ -32,9 +32,31 @@ const SignUpPage = () => {
     }
     if (data) {
       toast.success("Register Successfully!");
+      e.currentTarget.reset();
     }
   };
+  // with google-------------
+  const handleGoogleLogin = async () => {
+    const { data, error } = await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
 
+    if (error) {
+      toast.error(error.message);
+    }
+  };
+  // with github------------
+  const handleGithubLogin = async () => {
+    const { data, error } = await authClient.signIn.social({
+      provider: "github",
+      callbackURL: "/",
+    });
+
+    if (error) {
+      toast.error(error.message);
+    }
+  };
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       <div className="flex-1 flex justify-center items-center p-6 sm:p-10 bg-orange-50 order-2 lg:order-1">
@@ -146,12 +168,20 @@ const SignUpPage = () => {
             <div className="flex-1 h-px bg-orange-100" />
           </div>
 
-          <Button className="w-full" variant="tertiary">
+          <Button
+            onClick={() => handleGoogleLogin()}
+            className="w-full"
+            variant="tertiary"
+          >
             <InlineIcon icon="devicon:google" />
             Sign Up with Google
           </Button>
           {/* GitHub Button */}
-          <Button className="w-full" variant="tertiary">
+          <Button
+            onClick={handleGithubLogin}
+            className="w-full"
+            variant="tertiary"
+          >
             <Icon icon="mdi:github" />
             Sign Up with GitHub
           </Button>
