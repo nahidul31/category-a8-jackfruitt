@@ -13,6 +13,7 @@ import Link from "next/link";
 import { Icon, InlineIcon } from "@iconify/react";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
+
 const LoginPage = () => {
   const onSubmit = async (e) => {
     e.preventDefault();

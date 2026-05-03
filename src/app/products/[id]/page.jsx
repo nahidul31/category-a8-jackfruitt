@@ -2,6 +2,9 @@ import Image from "next/image";
 import { Button } from "@heroui/react";
 import { Star, ShoppingCart, ArrowLeft } from "@gravity-ui/icons";
 import Link from "next/link";
+export const metadata = {
+  title: "Products Details | SunCart",
+};
 const getDataFromApi = async () => {
   const res = await fetch(
     `https://category-a8-jackfruitt.vercel.app/products.json`,
