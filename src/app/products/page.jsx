@@ -1,8 +1,8 @@
 import ProductCart from "@/components/shared-page/homePage/productsCart/ProductCart";
 import productsData from "@/data/productsData.json";
-// const getDataFromApi = () => {
-//   return productsData;
-// };
+const getDataFromApi = () => {
+  return productsData;
+};
 
 export const metadata = {
   title: "AllProducts | SunCart",
@@ -17,28 +17,6 @@ export const metadata = {
 //   const data = await res.json();
 //   return data;
 // };
-const getDataFromApi = async () => {
-  const res = await fetch(
-    "https://category-a8-jackfruitt.vercel.app/products.json",
-    { cache: "no-store" },
-  );
-
-  const contentType = res.headers.get("content-type");
-
-  if (!res.ok) {
-    throw new Error(`HTTP error! Status: ${res.status}`);
-  }
-
-  if (!contentType || !contentType.includes("application/json")) {
-    const text = await res.text();
-    console.error("Not JSON response:", text);
-    throw new Error("API did not return JSON");
-  }
-
-  const data = await res.json();
-  console.log(data);
-  return data;
-};
 
 const AllProductsPage = async () => {
   const products = await getDataFromApi();

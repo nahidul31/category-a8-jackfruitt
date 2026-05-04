@@ -18,9 +18,12 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { Check, Person } from "@gravity-ui/icons";
 import Loading from "../loading";
+import { redirect } from "next/dist/server/api-utils";
+
 const ProfilePage = () => {
   const { data: session, isPending, error, refetch } = authClient.useSession();
   const [isOpen, setIsOpen] = useState(false);
+  // const session = await getSession();
   console.log(session);
   if (error) {
     return (
@@ -32,7 +35,11 @@ const ProfilePage = () => {
   }
 
   if (!session) {
-    return <Loading></Loading>;
+    return (
+      <div className="flex items-center justify-center h-screen text-xl font-bold">
+        No user available
+      </div>
+    );
   }
 
   const user = session.user;

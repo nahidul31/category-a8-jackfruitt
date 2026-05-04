@@ -1,6 +1,7 @@
 import Image from "next/image";
 import b1 from "@/assets/bannerimg/b1.jpg";
 import { Button, Chip } from "@heroui/react";
+import Link from "next/link";
 
 export default function Banner() {
   return (
@@ -41,12 +42,16 @@ export default function Banner() {
             season with exclusive deals made just for you.
           </p>
           <div className="space-x-3  mt-5">
-            <Button className="bg-orange-500 text-white hover:bg-orange-600">
-              Show Products
-            </Button>
-            <Button className="bg-orange-100 text-orange-600 hover:bg-orange-200">
-              About Us
-            </Button>
+            <Link href={"/products"}>
+              <Button className="bg-orange-500 text-white hover:bg-orange-600">
+                Show Products
+              </Button>
+            </Link>
+            <Link href={"/aboutus"}>
+              <Button className="bg-orange-100 text-orange-600 hover:bg-orange-200">
+                About Us
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

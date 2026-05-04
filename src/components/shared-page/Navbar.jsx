@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 
 // Gravity UI icons — npm install @gravity-ui/icons
 import {
@@ -45,6 +45,7 @@ export default function Navbar() {
   const handleLogOut = async () => {
     await authClient.signOut();
     toast.success("Log Out Successfully");
+    redirect("/signin");
   };
 
   const isActive = (href) =>
