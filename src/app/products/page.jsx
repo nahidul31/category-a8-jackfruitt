@@ -1,7 +1,7 @@
 import ProductCart from "@/components/shared-page/homePage/productsCart/ProductCart";
-export const metadata = {
-  title: "AllProducts | SunCart",
-};
+// export const metadata = {
+//   title: "AllProducts | SunCart",
+// };
 const getDataFromApi = async () => {
   const res = await fetch(
     "https://category-a8-jackfruitt.vercel.app/products.json",
