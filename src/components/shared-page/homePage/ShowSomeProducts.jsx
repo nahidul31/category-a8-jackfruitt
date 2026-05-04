@@ -1,14 +1,18 @@
 import ProductCart from "./productsCart/ProductCart";
 
-const getDataFromApi = async () => {
-  const res = await fetch(
-    "https://category-a8-jackfruitt.vercel.app/products.json",
-    { cache: "no-store" },
-  );
-
-  const data = await res.json();
-  return data;
+import productsData from "@/data/productsData.json";
+const getDataFromApi = () => {
+  return productsData;
 };
+// const getDataFromApi = async () => {
+//   const res = await fetch(
+//     "https://category-a8-jackfruitt.vercel.app/products.json",
+//     { cache: "no-store" },
+//   );
+
+//   const data = await res.json();
+//   return data;
+// };
 const ShowSomeProducts = async () => {
   const products = await getDataFromApi();
   // console.log(products);

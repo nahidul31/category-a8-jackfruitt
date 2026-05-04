@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for summer outings.",
+    "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&q=80",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Beach Straw Hat",
+    "brand": "SunnyWear",
+    "price": 12,
+    "rating": 4.5,
+    "stock": 20,
+    "description": "Lightweight straw hat to protect you from the sun.",
+    "image": "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?w=500&q=80",
+    "category": "Accessories"
+  },
+  {
+    "id": 3,
+    "name": "Men's Summer T-Shirt",
+    "brand": "CoolFit",
+    "price": 18,
+    "rating": 4.3,
+    "stock": 15,
+    "description": "Breathable cotton t-shirt designed for hot weather.",
+    "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=500&q=80",
+    "category": "Clothing"
+  },
+  {
+    "id": 4,
+    "name": "Women's Floral Dress",
+    "brand": "BloomStyle",
+    "price": 25,
+    "rating": 4.8,
+    "stock": 12,
+    "description": "Elegant floral summer dress for casual outings.",
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=500&q=80",
+    "category": "Clothing"
+  },
+  {
+    "id": 5,
+    "name": "SPF 50 Sunscreen Lotion",
+    "brand": "SkinGuard",
+    "price": 10,
+    "rating": 4.6,
+    "stock": 30,
+    "description": "Protect your skin with high SPF sunscreen.",
+    "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&q=80",
+    "category": "Skincare"
+  },
+  {
+    "id": 6,
+    "name": "Aloe Vera Gel",
+    "brand": "NatureCare",
+    "price": 8,
+    "rating": 4.4,
+    "stock": 25,
+    "description": "Soothing aloe vera gel for sunburn relief.",
+    "image": "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=500&q=80",
+    "category": "Skincare"
+  },
+  {
+    "id": 7,
+    "name": "Beach Flip Flops",
+    "brand": "StepEasy",
+    "price": 9,
+    "rating": 4.2,
+    "stock": 18,
+    "description": "Comfortable flip flops perfect for beach wear.",
+    "image": "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=500&q=80",
+    "category": "Footwear"
+  },
+  {
+    "id": 8,
+    "name": "Portable Mini Fan",
+    "brand": "CoolBreeze",
+    "price": 14,
+    "rating": 4.5,
+    "stock": 22,
+    "description": "Rechargeable handheld fan for instant cooling.",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80",
+    "category": "Electronics"
+  },
+  {
+    "id": 9,
+    "name": "Beach Tote Bag",
+    "brand": "CarryAll",
+    "price": 16,
+    "rating": 4.6,
+    "stock": 14,
+    "description": "Spacious and stylish tote bag for beach essentials.",
+    "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500&q=80",
+    "category": "Accessories"
+  },
+  {
+    "id": 10,
+    "name": "Hydrating Face Mist",
+    "brand": "GlowFresh",
+    "price": 11,
+    "rating": 4.3,
+    "stock": 19,
+    "description": "Refreshing face mist to keep your skin hydrated.",
+    "image": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500&q=80",
+    "category": "Skincare"
+  },
+  {
+    "id": 11,
+    "name": "Cooling Summer Cap",
+    "brand": "AirFlow",
+    "price": 13,
+    "rating": 4.4,
+    "stock": 16,
+    "description": "Breathable summer cap with cooling fabric for hot days.",
+    "image": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500&q=80",
+    "category": "Accessories"
+  },
+  {
+    "id": 12,
+    "name": "Insulated Water Bottle",
+    "brand": "HydroMax",
+    "price": 20,
+    "rating": 4.8,
+    "stock": 25,
+    "description": "Keeps your drinks cold for hours—perfect for summer trips.",
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&q=80",
+    "category": "Accessories"
+  }
+]

@@ -2,18 +2,22 @@ import Image from "next/image";
 import { Button } from "@heroui/react";
 import { Star, ShoppingCart, ArrowLeft } from "@gravity-ui/icons";
 import Link from "next/link";
+import productsData from "@/data/productsData.json";
+const getDataFromApi = () => {
+  return productsData;
+};
 // export const metadata = {
 //   title: "Products Details | SunCart",
 // };
-const getDataFromApi = async () => {
-  const res = await fetch(
-    `https://category-a8-jackfruitt.vercel.app/products.json`,
-    { cache: "no-store" },
-  );
+// const getDataFromApi = async () => {
+//   const res = await fetch(
+//     `https://category-a8-jackfruitt.vercel.app/products.json`,
+//     { cache: "no-store" },
+//   );
 
-  const data = await res.json();
-  return data;
-};
+//   const data = await res.json();
+//   return data;
+// };
 
 const ProductDetails = async ({ params }) => {
   const { id } = await params;
